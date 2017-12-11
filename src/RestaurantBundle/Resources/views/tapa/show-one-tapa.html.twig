@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+{{ parent() }}
+<link rel="stylesheet" href="{{ asset('css/main.css') }}">
+{% endblock %}
+{% block body %}
+    <center>
+        <table class="table-hover">
+            <thead>
+                <tr>
+                    <th id="user-list-header">#</th>
+                    <th id="user-list-header">Nombre</th>
+                    <th id="user-list-header">Descripción</th>
+                    <th id="user-list-header">Fecha creación</th>
+                    <th id="user-list-header">Precio</th>
+                    <th id="user-list-header">Foto</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td id="user-list-body">{{ tapa.id }}</td>
+                    <td id="user-list-body">{{ tapa.nombre }}</td>
+                    <td id="user-list-body">{{ tapa.descripcion }}</td>
+                    <td id="user-list-body">{{ tapa.fechaCreacion | date('d-m-y') }}</td>
+                    <td id="user-list-body">{{ tapa.precio}}</td>
+                    <td id="user-list-body">{{ tapa.foto}}</td>
+                    <td id="user-list-body"><a href="{{ path('update-tapa', { 'id': tapa.id }) }}" class="btn btn-warning">Modificar</a></td>
+                    <td id="user-list-body"><a href="{{ path('remove-tapa', { 'id': tapa.id }) }}" class="btn btn-danger">Eliminar</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </center>
+{% endblock %}

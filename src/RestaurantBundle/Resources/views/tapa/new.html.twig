@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="container">
+        <div class="wrap">
+            {{ form_start(tapa_form) }}
+            <div class="text-center" id="regiser-form">
+                <div class="form-group row">
+                    {{ form_label(tapa_form.nombre, null, { 'label_attr':{ 'class': 'col-sm-2 col-form-label' }}) }}
+                    <div class="col-sm-10">
+                        {{ form_widget(tapa_form.nombre, {'attr':{'class':'form-control' }}) }}
+                    </div>
+                </div>
+                <div class="form-group row">
+                    {{ form_label(tapa_form.descripcion, null, { 'label_attr':{ 'class': 'col-sm-2 col-form-label' }}) }}
+                    <div class="col-sm-10">
+                        {{ form_widget(tapa_form.descripcion, {'attr':{'class':'form-control' }}) }}
+                    </div>
+                </div>
+                <div class="form-group row">
+                    {{ form_label(tapa_form.precio, null, { 'label_attr':{ 'class': 'col-sm-2 col-form-label' }}) }}
+                    <div class="col-sm-10">
+                        {{ form_widget(tapa_form.precio, {'attr':{'class':'form-control' }}) }}
+                    </div>
+                </div>
+                <div class="form-group row">
+                    {{ form_label(tapa_form.foto, null, { 'label_attr':{ 'class': 'col-sm-2 col-form-label' }}) }}
+                    <div class="col-sm-10">
+                        {{ form_widget(tapa_form.foto, {'attr':{'class':'form-control' }}) }}
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-10">
+                        {{ form_widget(tapa_form.Crear, {'attr': {'class': 'btn btn-success' }}) }}
+                    </div>
+                </div>
+            </div>
+            {{ form_end(tapa_form) }}
+        </div>
+    </div>
+{% endblock %}
