@@ -9,6 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class ClienteType extends AbstractType
 {
@@ -23,7 +24,8 @@ class ClienteType extends AbstractType
                 array('type' => PasswordType::class,
                     'first_options' => array('label' => 'Contraseña'),
                     'second_options' => array('label' => 'Confirma contraseña'),
-                ));
+                ))
+            ->add('Registrar', SubmitType::class);
     }
     
     /**

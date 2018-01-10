@@ -7,6 +7,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use ClienteBundle\Entity\Cliente;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use ClienteBundle\Form\ClienteType;
 
 class DefaultController extends Controller
 {
@@ -28,8 +29,22 @@ class DefaultController extends Controller
 
 			$em = $this->getDoctrine()->getManager();
     		$em->persist($cliente);
-    		$em->flush();
+			$em->flush();
+
+			return $this->redirectToRoute('show-cliente');
     	}
         return $this->render('ClienteBundle:Default:new.html.twig', array('client_new' => $form->createView()));
-    }
+	}
+	
+	/**
+	 * @Route("/cliente/show", name="show-cliente")
+	 */
+	public function showAction()
+	{
+		$em = $this->getDoctrine()->getManager();
+
+		$cliente = $em->getRepository('ClienteBundle:Cliente')->findAll();
+
+		return $this->render('ClienteBundle:Default:index.html.twig', array('cliente' => $cliente));
+	}
 }

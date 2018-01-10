@@ -3,6 +3,14 @@
 security:
     encoders:
         ClienteBundle\Entity\Cliente: bcrypt
+        Symfony\Component\Security\Core\User\User: plaintext
+    providers:
+        in_memory:
+            memory:
+                users:
+                    admin:
+                        password: admin
+                        roles: 'ROLE_ADMIN'
 
     # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     providers:
